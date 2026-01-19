@@ -1,34 +1,24 @@
 // Simple SPA Router using History API
 
-const routes = {
-  '/': {
-    title: 'Home',
-    render: () => `
-      <h1>🏠 Home Page</h1>
-      <p>Welcome to the SPA Deep Link Demo!</p>
-      <p>This is a minimal single-page application that supports deep linking using the History API and the 404 redirect hack.</p>
-      <div class="path-info">Current path: ${location.pathname}</div>
-    `
-  },
-  '/about': {
-    title: 'About',
-    render: () => `
-      <h1>ℹ️ About Page</h1>
-      <p>This page demonstrates client-side routing.</p>
-      <p>Try refreshing this page or copying the URL to a new tab - deep linking works!</p>
-      <div class="path-info">Current path: ${location.pathname}</div>
-    `
-  },
-  '/contact': {
-    title: 'Contact',
-    render: () => `
-      <h1>📧 Contact Page</h1>
-      <p>Get in touch with us!</p>
-      <p>This route is handled entirely on the client side.</p>
-      <div class="path-info">Current path: ${location.pathname}</div>
-    `
+let routes = {};
+
+// Load routes from JSON file
+async function loadRoutes() {
+  const response = await fetch('/routes.json');
+  const data = await response.json();
+  
+  // Transform JSON data into route objects with render functions
+  for (const [path, route] of Object.entries(data)) {
+    routes[path] = {
+      title: route.title,
+      render: () => `
+        <h1>${route.heading}</h1>
+        ${route.content.map(p => `<p>${p}</p>`).join('')}
+        <div class="path-info">Current path: ${location.pathname}</div>
+      `
+    };
   }
-};
+}
 
 // Router class
 class Router {
@@ -88,4 +78,9 @@ class Router {
 }
 
 // Initialize router
-const router = new Router(routes);
+async function init() {
+  await loadRoutes();
+  const router = new Router(routes);
+}
+
+init();
