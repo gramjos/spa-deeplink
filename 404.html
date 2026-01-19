@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    // 404 redirect hack for SPA deep linking
+    // This page is served for any 404 errors on static hosts like GitHub Pages
+    // It stores the intended path and redirects to index.html
+    // The main app then reads this and navigates to the correct route
+    
+    sessionStorage.redirect = location.href;
+    location.replace(location.origin);
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
