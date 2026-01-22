@@ -1,0 +1,64 @@
+{
+  "root": {
+    "type": "directory",
+    "title": "Home",
+    "slug": "root",
+    "content_path": "/README.html",
+    "children": [
+      {
+        "type": "file",
+        "title": "about",
+        "slug": "about",
+        "content_path": "/about.html"
+      },
+      {
+        "type": "file",
+        "title": "homie",
+        "slug": "homie",
+        "content_path": "/homie.html"
+      },
+      {
+        "type": "directory",
+        "title": "nature",
+        "slug": "nature",
+        "content_path": "/nature/README.html",
+        "children": [
+          {
+            "type": "file",
+            "title": "desert",
+            "slug": "nature/desert",
+            "content_path": "/nature/desert.html"
+          },
+          {
+            "type": "directory",
+            "title": "tundra",
+            "slug": "nature/tundra",
+            "content_path": "/nature/tundra/README.html",
+            "children": [
+              {
+                "type": "file",
+                "title": "arctic",
+                "slug": "nature/tundra/arctic",
+                "content_path": "/nature/tundra/arctic.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "directory",
+        "title": "physics",
+        "slug": "physics",
+        "content_path": "/physics/README.html",
+        "children": [
+          {
+            "type": "file",
+            "title": "golden_file",
+            "slug": "physics/golden_file",
+            "content_path": "/physics/golden_file.html"
+          }
+        ]
+      }
+    ]
+  }
+}

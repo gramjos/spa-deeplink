@@ -10,22 +10,26 @@ body {
   background: #f5f5f5;
 }
 
-nav {
+nav#main-nav {
   background: #333;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-nav a {
+nav#main-nav a {
   color: white;
   text-decoration: none;
-  margin-right: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background 0.2s;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid #555;
+  transition: all 0.2s;
 }
 
-nav a:hover, nav a.active {
+nav#main-nav a:hover, nav#main-nav a.active {
   background: #555;
+  border-color: #777;
 }
 
 #app {
@@ -53,4 +57,135 @@ p {
   background: #e8f4e8;
   border-radius: 4px;
   font-family: monospace;
+}
+
+/* Breadcrumb navigation */
+.breadcrumbs {
+  background: #f0f0f0;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.breadcrumbs a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+  background: transparent;
+}
+
+.breadcrumbs span {
+  color: #666;
+}
+
+/* Two-column Files and Directories container */
+.files-dirs-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.files-list,
+.dirs-list {
+  flex: 1;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.files-list h3,
+.dirs-list h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.files-list ul,
+.dirs-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.files-list li,
+.dirs-list li {
+  margin-bottom: 0.25rem;
+}
+
+.files-list a,
+.dirs-list a {
+  color: #0066cc;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.files-list a:hover,
+.dirs-list a:hover {
+  background: #e9ecef;
+}
+
+.files-list .empty,
+.dirs-list .empty {
+  color: #999;
+  font-style: italic;
+  padding: 0.5rem;
+}
+
+/* Content area */
+.content {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.content h1 {
+  margin-top: 0;
+}
+
+.content h2 {
+  color: #444;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.content li {
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.content a {
+  color: #0066cc;
+}
+
+/* Child navigation - no longer used, kept for reference */
+.child-nav {
+  display: none;
+}
+
+/* Error state */
+.error {
+  color: #c00;
+  padding: 1rem;
+  background: #fee;
+  border-radius: 4px;
 }
